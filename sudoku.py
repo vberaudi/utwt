@@ -6,11 +6,8 @@ GRNG = range(9)
 
 import pandas as pd
 
-problem = pd.read_csv("sudoku.csv").values.tolist()
-import csv
-x = csv.reader("sudoku.csv")
-y = list(x)
-print(y)
+problem = pd.read_csv("sudoku.csv")
+
 mdl = CpoModel(name="Sudoku")
 grid = [[integer_var(min=1, max=9, name="C" + str(l) + str(c)) for l in GRNG] for c in GRNG]
 for l in GRNG:
@@ -33,7 +30,7 @@ print("\nSolving model....")
 msol = mdl.solve(TimeLimit=10)
 
 sol = [[msol[grid[l][c]] for c in GRNG] for l in GRNG]
-print(y)
+print(sol)
 pd.DataFrame(sol).to_csv("sudoku_res.csv")
 from docplex.worker.clientapi import set_output_attachments
 outputs = dict()
