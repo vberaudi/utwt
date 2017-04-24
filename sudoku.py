@@ -18,11 +18,11 @@ ssrng = range(0, 9, 3)
 for sl in ssrng:
     for sc in ssrng:
         mdl.add(all_diff([grid[l][c] for l in range(sl, sl + 3) for c in range(sc, sc + 3)]))
-for l in GRNG:
-    for c in GRNG:
-        v = problem[l][c]
+for t in problem.itertuples(index=False):
+    for v in t:
         if v > 0:
             grid[l][c].set_domain((v, v))
+            
 print("\nSolving model....")
 msol = mdl.solve(TimeLimit=10)
 
