@@ -25,9 +25,9 @@ for l in GRNG:
 print("\nSolving model....")
 msol = mdl.solve(TimeLimit=10)
 
-sol = pd.DataFrame([[msol[grid[l][c]] for c in GRNG] for l in GRNG])
+sol = [[msol[grid[l][c]] for c in GRNG] for l in GRNG]
 print(sol)
-sol.to_csv("sudoku_res.csv")
+pd.DataFrame(sol).to_csv("sudoku_res.csv")
 from docplex.worker.clientapi import set_output_attachments
 outputs = dict()
 outputs['sudoku_res.csv'] = './sudoku_res.csv'
