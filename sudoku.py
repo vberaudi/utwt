@@ -7,6 +7,7 @@ GRNG = range(9)
 import pandas as pd
 
 problem = pd.read_csv("sudoku.csv")
+print(problem)
 mdl = CpoModel(name="Sudoku")
 grid = [[integer_var(min=1, max=9, name="C" + str(l) + str(c)) for l in GRNG] for c in GRNG]
 for l in GRNG:
