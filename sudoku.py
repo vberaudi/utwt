@@ -28,17 +28,17 @@ for t in problem.itertuples(index=False):
         if v > 0:
             print(i)
             print(j)
-            grid[j][i].set_domain((v, v))
+#            grid[j][i].set_domain((v, v))
             
 print("\nSolving model....")
-msol = mdl.solve(TimeLimit=10)
+#msol = mdl.solve(TimeLimit=10)
 
-sol = [[msol[grid[l][c]] for c in GRNG] for l in GRNG]
-print(sol)
-pd.DataFrame(sol).to_csv("sudoku_res.csv")
-from docplex.worker.clientapi import set_output_attachments
-outputs = dict()
-outputs['sudoku_res.csv'] = './sudoku_res.csv'
+#sol = [[msol[grid[l][c]] for c in GRNG] for l in GRNG]
+#print(sol)
+#pd.DataFrame(sol).to_csv("sudoku_res.csv")
+#from docplex.worker.clientapi import set_output_attachments
+#outputs = dict()
+#outputs['sudoku_res.csv'] = './sudoku_res.csv'
 
-set_output_attachments(outputs)
+#set_output_attachments(outputs)
 
