@@ -6,9 +6,11 @@ from docplex.cp.model import *
 GRNG = range(9)
 problem_data = pd.read_csv("sudoku.csv", sep=";")
 problem = []
+print(problem_data)
 for t in problem_data.itertuples(index=False):
     problem.append([i for i in t])
-    
+print(problem)
+
 mdl = CpoModel(name="Sudoku")
 grid = [[integer_var(min=1, max=9, name="C" + str(l) + str(c)) for l in GRNG] for c in GRNG]
 for l in GRNG:
@@ -25,10 +27,7 @@ for l in GRNG:
     for c in GRNG:
         v = problem[l][c]
         if v > 0:
-            print(l)
-            print(c)
-            print(v)
-            print("...")
+            print(str(l)+" "+str(c)+" "+str(v))
             grid[l][c].set_domain((v, v))
             
 print("\nSolving model....")
