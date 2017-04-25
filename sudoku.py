@@ -4,7 +4,7 @@ import pandas as pd
 from docplex.cp.model import *
 
 GRNG = range(9)
-problem_data = pd.read_csv("https://github.com/vberaudi/utwt/blob/master/sudoku.csv?raw=True", sep=";")
+problem_data = pd.read_csv("sudoku.csv", sep=";")
 problem = []
 for t in problem_data.itertuples(index=False):
     problem.append([i for i in t])
