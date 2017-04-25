@@ -8,6 +8,7 @@ problem_data = pd.read_csv("sudoku.csv", sep=";")
 problem = []
 print(problem_data)
 for t in problem_data.itertuples(index=False):
+    print(t)
     problem.append([i for i in t])
 print(problem)
 
@@ -27,7 +28,6 @@ for l in GRNG:
     for c in GRNG:
         v = problem[l][c]
         if v > 0:
-            print(str(l)+" "+str(c)+" "+str(v))
             grid[l][c].set_domain((v, v))
             
 print("\nSolving model....")
