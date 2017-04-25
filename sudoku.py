@@ -22,9 +22,12 @@ i = -1
 for t in problem.itertuples(index=False):
     i +=1
     j =-1
+    print(t)
     for v in t:
         j+=1
         if v > 0:
+            print(i)
+            print(j)
             grid[j][i].set_domain((v, v))
             
 print("\nSolving model....")
