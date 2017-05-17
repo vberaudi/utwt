@@ -1,6 +1,6 @@
 tuple product{key string name; int demand; float inside; float outside;};
 tuple resource{key string name; int capacity;};
-tuple consumption {key string product; key string resource; int capacity;};
+tuple consumption {key string product; key string resource; float capacity;};
 {product} products = ...;
 {resource} resources = ...;
 {consumption} consumptions = ...;
