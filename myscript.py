@@ -18,6 +18,9 @@ or a DOcplex model instance.
 """
 from docplex.mp.model_reader import ModelReader
 
+this is an error
+
+from docplex.mp.model_reader import XXX
 
 def populate_from_file(filename, gap=0.1,
                        pool_intensity=4,
